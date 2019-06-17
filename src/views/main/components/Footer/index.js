@@ -7,7 +7,7 @@ import SocialIcons from './SocialIcons';
 const FooterWrapper = styled.div`
   width: 100%;
   box-sizing: border-box;
-  padding: 40px;
+  padding: 20px 40px;
   border-top: 1px solid #f3f8ff;
   display: flex;
   flex-direction: row;

@@ -13,7 +13,7 @@ export default ({ selectedUser }) => (
   <Wrapper>
     {
       selectedUser && selectedUser.total_photos === 0 ?
-        "No Photo for this user" : "Please select a user to see a list of photos"
+        "No Photo for this user" : selectedUser ? "Loading ..." : "Please select a user to see a list of photos"
     }
   </Wrapper>
 )
