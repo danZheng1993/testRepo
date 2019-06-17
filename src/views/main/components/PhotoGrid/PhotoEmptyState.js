@@ -15,6 +15,5 @@ export default ({ selectedUser }) => (
       selectedUser && selectedUser.total_photos === 0 ?
         "No Photo for this user" : "Please select a user to see a list of photos"
     }
-    noPhoto
   </Wrapper>
 )
