@@ -7,6 +7,7 @@ import { getPhotoResult } from 'store/selectors';
 import { actionTypes, FetchPhotos } from 'store/actions/photos';
 
 import Photo from './Photo';
+import PhotoEmptyState from './PhotoEmptyState';
 
 const PhotoGridWrapper = styled.div`
   flex: 1;
@@ -26,7 +27,10 @@ class PhotoGrid extends React.Component {
     return ( <Photo photo={photo} key={`photo_${photo.id}`} /> );
   }
   render() {
-    const { photos, status } = this.props;
+    const { photos, status, selectedUser } = this.props;
+    if (photos.length === 0) {
+      return <PhotoEmptyState selectedUser={selectedUser} />
+    }
     return (
       <PhotoGridWrapper onScroll={this.onScroll}>
         {photos.map(this.renderPhoto)}
@@ -38,7 +42,7 @@ class PhotoGrid extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({ ...getPhotoResult(state), status: state.photos.current_status });
+const mapStateToProps = (state) => ({ ...getPhotoResult(state), status: state.photos.current_status, selectedUser: state.users.selected_user });
 const mapDispatchToProps = { FetchPhotos };
 
 export default connect(mapStateToProps, mapDispatchToProps)(PhotoGrid);

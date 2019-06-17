@@ -15,6 +15,10 @@ const PhotoFilterWrapper = styled.div`
   padding-left: 60px;
 `;
 
+const Select = styled.select`
+  margin-left: 20px;
+`
+
 class PhotoGrid extends React.Component {
   onChange = (evt) => {
     const orderBy = evt.target.value;
@@ -24,11 +28,11 @@ class PhotoGrid extends React.Component {
     const { orderBy } = this.props;
     return (
       <PhotoFilterWrapper>
-        Order By: <select value={orderBy} onChange={this.onChange}>
+        Order By: <Select value={orderBy} onChange={this.onChange}>
           <option value="latest">Latest</option>
           <option value="popular">Popular</option>
           <option value="oldest">Oldest</option>
-        </select>
+        </Select>
       </PhotoFilterWrapper>
     )
   }

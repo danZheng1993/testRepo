@@ -3,7 +3,9 @@ import styled from 'styled-components';
 import InfiniteLoader from 'react-infinite-loader';
 
 import { actionTypes } from 'store/actions/users';
+
 import User from './User';
+import UserEmptyState from './UserEmptyState';
 
 const ListWrapper = styled.div`
   flex: 1;
@@ -29,6 +31,9 @@ export default class UserList extends React.Component {
 
   render() {
     const { users, status } = this.props;
+    if (users.length === 0) {
+      return <UserEmptyState />
+    }
     return (
       <ListWrapper onScroll={this.onScroll}>
         {users.map(this.renderUser)}
