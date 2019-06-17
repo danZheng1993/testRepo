@@ -31,7 +31,7 @@ const Icon = styled.img`
 `;
 
 export const ShareButton = (props) => (
-  <Wrapper href={props.buildLink(props.referralLink)}>
+  <Wrapper href={props.buildLink(props.referralLink)} target="_blank">
     <Icon src={get(Icons, props.icon)} />
   </Wrapper>
 );
