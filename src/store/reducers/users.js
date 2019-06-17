@@ -20,6 +20,7 @@ export default handleActions(
         const { type, payload } = action;
         draft.current_status = type;
         draft.keyword = payload;
+        draft.current_page = 0;
       }),
     [actionTypes.FETCH_USERS]: (state, action) =>
       produce(state, draft => {
@@ -29,13 +30,13 @@ export default handleActions(
       }),
     [actionTypes.FETCH_USERS_SUCCESS]: (state, action) =>
       produce(state, draft => {
-        const { type, payload: { results, ...rest } } = action;
-        draft = {
-          current_status: type,
-          results: [...state.results, ...results],
-          ...rest,
-          errors: null,
-        };
+        const { type, payload: { results, current_page, total_pages, total } } = action;
+        draft.current_status = type;
+        draft.results = [...state.results, ...results];
+        draft.current_page = current_page;
+        draft.total_pages = total_pages;
+        draft.total = total;
+        draft.errors = null;
       }),
     [actionTypes.FETCH_USERS_FAILURE]: (state, action) =>
       produce(state, draft => {
