@@ -8,8 +8,10 @@ import UserList from './UserList';
 
 const styles= {
   wrapper: {
+    display: 'flex',
     flex: 1,
     height: '100%',
+    flexDirection: 'column',
   }
 }
 

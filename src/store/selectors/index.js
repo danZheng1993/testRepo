@@ -1,6 +1,8 @@
 import get from 'lodash.get';
 
 export const getPhotoOrder = state => state.photos.orderBy;
+export const getPhotoPage = state => state.photos.current_page;
+export const getTotalPhoto = state => state.photos.total;
 
 export const getUserSearchKey = state => state.users.keyword;
 export const getUserPage = state => state.users.current_page;
