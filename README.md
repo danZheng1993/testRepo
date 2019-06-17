@@ -1,4 +1,28 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Project structure
+
+## `src/store` Folder (redux logic)
+
+### `src/store/actions`
+
+This folder has all the redux actions.
+
+### `src/store/reducers`
+
+This folder has all the reducers.
+
+### `src/stores/sagas`
+
+This folder has all the redux-sagas.
+
+### `src/stores/selectors`
+
+This folder has selectors which will be used on the component side and redux-saga side.
+
+## `src/views` Folder (component)
+
+View means pages. Over here, it only has one main view.
+Under the main view, it has components folder which has the sub components which is used inside the view
+
 
 ## Available Scripts
 
