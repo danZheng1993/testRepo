@@ -17,7 +17,7 @@ const PhotoGridWrapper = styled.div`
   overflow-y: scroll;
   padding: 16px;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 `;
 
 class PhotoGrid extends React.Component {
