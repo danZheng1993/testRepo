@@ -5,10 +5,7 @@ import { actionTypes } from '../actions/photos';
 import { actionTypes as userActionTypes } from '../actions/users';
 
 const initialState = {
-  results: [],
-  total: 0,
-  total_pages: 0,
-  current_page: 0,
+  photos: [],
   current_status: 0,
   errors: null,
   orderBy: 'latest',
@@ -18,19 +15,13 @@ export default handleActions(
   {
     [userActionTypes.USER_SELECTED]: (state, action) =>
       produce(state, draft => {
-        draft.results = [];
-        draft.total = 0;
-        draft.total_pages = 0;
-        draft.current_page = 0;
+        draft.photos = [];
       }),
     [actionTypes.UPDATE_ORDER]: (state, action) => 
       produce(state, draft => {
         const { type, payload } = action;
         draft.current_status = type;
-        draft.results = [];
-        draft.total = 0;
-        draft.total_pages = 0;
-        draft.current_page = 0;
+        draft.photos = [];
         draft.orderBy = payload;
       }),
     [actionTypes.FETCH_PHOTOS]: (state, action) =>
@@ -41,12 +32,9 @@ export default handleActions(
       }),
     [actionTypes.FETCH_PHOTOS_SUCCESS]: (state, action) =>
       produce(state, draft => {
-        const { type, payload: { results, current_page, total_pages, total } } = action;
+        const { type, payload } = action;
         draft.current_status = type;
-        draft.results = [...state.results, ...results];
-        draft.current_page = current_page;
-        draft.total_pages = total_pages;
-        draft.total = total;
+        draft.photos = [...state.photos, ...payload];
         draft.errors = null;
       }),
     [actionTypes.FETCH_PHOTOS_FAILURE]: (state, action) =>

@@ -20,6 +20,7 @@ export default handleActions(
         const { type, payload } = action;
         draft.current_status = type;
         draft.keyword = payload;
+        draft.results = [];
         draft.current_page = 0;
       }),
     [actionTypes.FETCH_USERS]: (state, action) =>

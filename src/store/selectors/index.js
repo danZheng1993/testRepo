@@ -1,7 +1,6 @@
 import get from 'lodash.get';
 
 export const getPhotoOrder = state => state.photos.orderBy;
-export const getPhotoPage = state => state.photos.current_page;
 
 export const getUserSearchKey = state => state.users.keyword;
 export const getUserPage = state => state.users.current_page;
@@ -19,9 +18,5 @@ export const getUserResult = state => ({
 });
 
 export const getPhotoResult = state => ({
-  results: state.photos.results,
-  total: state.photos.total,
-  totalPages: state.photos.total_pages,
-  currentPage: state.photos.current_page,
-  currentStatus: state.photos.current_status,
+  photos: state.photos.photos,
 })

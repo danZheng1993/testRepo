@@ -4,15 +4,14 @@ import { getPhotos } from 'api';
 
 import { actionTypes } from '../actions/photos';
 import { actionTypes as userActionTypes } from '../actions/users';
-import { getSelectedUserName, getPhotoPage, getPhotoOrder } from '../selectors';
+import { getSelectedUserName, getPhotoOrder } from '../selectors';
 
 function* fetchPhotos(action) {
   const username = yield select(getSelectedUserName);
-  const page = yield select(getPhotoPage);
   const orderBy = yield select(getPhotoOrder);
   try {
-    const result = yield call(getPhotos, username, page + 1, 20, orderBy);
-    yield put({ type: actionTypes.FETCH_PHOTOS_SUCCESS, payload: {...result, current_page: page + 1} });
+    const result = yield call(getPhotos, username, 1, 30, orderBy);
+    yield put({ type: actionTypes.FETCH_PHOTOS_SUCCESS, payload: result });
   } catch (err) {
     yield put({ type: actionTypes.FETCH_PHOTOS_FAILURE, payload: err });
   }
