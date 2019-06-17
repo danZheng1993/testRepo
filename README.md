@@ -1,3 +1,5 @@
+# Project structure
+
 ## `src/store` Folder (redux logic)
 
 ### `src/store/actions`
