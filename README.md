@@ -1,3 +1,21 @@
+## Project Structure
+
+### `src/store/actions`
+
+This folder has all the redux actions.
+
+### `src/store/reducers`
+
+This folder has all the reducers.
+
+### `src/stores/sagas`
+
+This folder has all the redux-sagas.
+
+### `src/stores/selectors`
+
+This folder has selectors which will be used on the component side and redux-saga side.
+
 
 ## Available Scripts
 
