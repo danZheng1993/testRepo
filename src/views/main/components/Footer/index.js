@@ -1,16 +1,16 @@
 import React from 'react';
+import styled from 'styled-components';
 
-const styles = {
-  wrapper: {
-    width: '100%',
-    padding: '40px',
-  }
-}
+const FooterWrapper = styled.div`
+  width: 100%;
+  padding: 40px;
+  border-top: 1px solid #f3f8ff;
+`;
 
 export default class Footer extends React.Component {
   render() {
     return (
-      <div style={styles.wrapper}>Footer</div>
+      <FooterWrapper>Footer</FooterWrapper>
     )
   }
 }

@@ -41,7 +41,7 @@ class UserSearch extends React.Component {
     const { results, status } = this.props;
     return (
       <UserSelectorWrapper>
-        <Input type="text" onChange={this.onChangeKeyword} />
+        <Input type="text" onChange={this.onChangeKeyword} placeholder="Search user..." />
         <UserList users={results} status={status} onSelect={this.onSelect} loadMore={this.loadMore} />
       </UserSelectorWrapper>
     )
