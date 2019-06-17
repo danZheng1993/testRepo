@@ -26,7 +26,12 @@ export default class UserList extends React.Component {
   }
 
   renderUser = (user) => (
-    <User user={user} onClick={this.onSelect(user)} key={`user_${user.id}`}/>
+    <User
+      selected={user.id === this.props.selectedId}
+      user={user}
+      onClick={this.onSelect(user)}
+      key={`user_${user.id}`}
+    />
   )
 
   render() {

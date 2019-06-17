@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
+import get from 'lodash.get';
 
 import { getUserResult } from 'store/selectors';
 import { UpdateSearchFilter, UserSelected, FetchUsers } from 'store/actions/users';
@@ -33,16 +34,21 @@ class UserSearch extends React.Component {
   }
 
   loadMore = () => {
-    console.log('Fetch more');
     this.props.FetchUsers();
   }
 
   render() {
-    const { results, status } = this.props;
+    const { results, status, selected } = this.props;
     return (
       <UserSelectorWrapper>
         <Input type="text" onChange={this.onChangeKeyword} placeholder="Search user..." />
-        <UserList users={results} status={status} onSelect={this.onSelect} loadMore={this.loadMore} />
+        <UserList
+          users={results}
+          status={status}
+          selectedId={get(selected, 'id')}
+          onSelect={this.onSelect}
+          loadMore={this.loadMore}
+        />
       </UserSelectorWrapper>
     )
   }
@@ -50,6 +56,7 @@ class UserSearch extends React.Component {
 
 const mapStateToProps = (state) => ({
   ...getUserResult(state),
+  selected: state.users.selected_user,
   status: state.users.current_status,
 });
 

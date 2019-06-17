@@ -5,6 +5,9 @@ const ItemWrapper = styled.div`
   padding: 16px;
   border-bottom: 1px solid #ececec;
   cursor: pointer;
+  &.selected {
+    background-color: #f3f8ff;
+  }
   &:hover {
     background-color: #f3f8ff;
   }
@@ -49,9 +52,9 @@ const StatsWrapper = styled.div`
 
 export default class User extends React.Component {
   render() {
-    const { user } = this.props;
+    const { user, selected } = this.props;
     return (
-      <ItemWrapper onClick={this.props.onClick}>
+      <ItemWrapper className={selected && 'selected'} onClick={this.props.onClick}>
         <Img src={user.profile_image.medium} />
         <InfoContainer>
           <Name href={user.portfolio_url} target="_blank">{user.first_name} {user.last_name}</Name>
