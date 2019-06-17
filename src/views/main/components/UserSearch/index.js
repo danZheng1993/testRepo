@@ -9,7 +9,7 @@ import UserList from './UserList';
 
 const UserSelectorWrapper = styled.div`
   display: flex;
-  flex: 1;
+  flex: 1.5;
   height: 100%;
   flex-direction: column;
   border-right: 1px solid #f3f8ff;
