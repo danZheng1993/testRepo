@@ -15,6 +15,8 @@ function* fetchUsers(action) {
     } catch (err) {
       yield put({ type: actionTypes.FETCH_USERS_FAILURE, payload: err });
     }
+  } else {
+    yield put({ type: actionTypes.REACH_END })
   }
 }
 

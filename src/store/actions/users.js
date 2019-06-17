@@ -6,6 +6,7 @@ export const actionTypes = {
   FETCH_USERS_FAILURE: '[USERS] - Get users Failure',
   UPDATE_SEARCH_FILTER: '[USERS] - Update user search filter',
   USER_SELECTED: '[USERS] - Selected User',
+  REACH_END: '[USERS] - Reac End',
 };
 
 export const FetchUsers = createAction(actionTypes.FETCH_USERS);

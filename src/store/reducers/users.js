@@ -23,6 +23,11 @@ export default handleActions(
         draft.results = [];
         draft.current_page = 0;
       }),
+    [actionTypes.REACH_END]: (state, action) =>
+      produce(state, draft => {
+        const { type } = action;
+        draft.current_status = type;
+      }),
     [actionTypes.FETCH_USERS]: (state, action) =>
       produce(state, draft => {
         const { type } = action;

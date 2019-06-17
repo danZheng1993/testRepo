@@ -18,6 +18,8 @@ function* fetchPhotos(action) {
     } catch (err) {
       yield put({ type: actionTypes.FETCH_PHOTOS_FAILURE, payload: err });
     }
+  } else {
+    yield put({ type: actionTypes.REACH_END })
   }
 }
 

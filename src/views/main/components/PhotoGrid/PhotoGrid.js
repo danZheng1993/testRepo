@@ -35,7 +35,7 @@ class PhotoGrid extends React.Component {
     return (
       <PhotoGridWrapper onScroll={this.onScroll}>
         {photos.map(this.renderPhoto)}
-        { photos.length > 0 && status === actionTypes.FETCH_USERS && (
+        { photos.length > 0 && status === actionTypes.FETCH_PHOTOS && (
           <InfiniteLoader visitStyle={{ height: '40px', width: '100%' }} loaderStyle={{ height: '40px', width: '40px', border: '2px solid #c6cfff', borderRight: 'none' }} />
         )}
       </PhotoGridWrapper>

@@ -5,6 +5,7 @@ export const actionTypes = {
   FETCH_PHOTOS_SUCCESS: '[PHOTOS] - Get photos Success',
   FETCH_PHOTOS_FAILURE: '[PHOTOS] - Get photos Failure',
   UPDATE_ORDER: '[PHOTOS] - Update Order',
+  REACH_END: '[PHOTOS] - Reach End',
 };
 
 export const UpdateOrder = createAction(actionTypes.UPDATE_ORDER);

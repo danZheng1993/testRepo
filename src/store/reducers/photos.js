@@ -21,6 +21,11 @@ export default handleActions(
         draft.current_page = 0;
         draft.total = action.payload.total_photos;
       }),
+    [actionTypes.REACH_END]: (state, action) =>
+      produce(state, draft => {
+        const { type } = action;
+        draft.current_status = type;
+      }),
     [actionTypes.UPDATE_ORDER]: (state, action) => 
       produce(state, draft => {
         const { type, payload } = action;
